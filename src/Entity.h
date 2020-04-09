@@ -43,6 +43,11 @@ class Entity
       // return componentTypeMap[&typeid(T)];
       return static_cast<T*>(componentTypeMap[&typeid(T)]);
     }
+
+    template <typename T>
+    bool HasComponent() {
+      return componentTypeMap.count(&typeid(T)) > 0;
+    }
 };
 
 #endif
