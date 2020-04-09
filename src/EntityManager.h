@@ -16,8 +16,8 @@ class EntityManager
     bool HasNoEntities();
     Entity& AddEntity(std::string entityName);
     std::vector<Entity*> GetEntities() const;
-    void LogEntities();
-    void LogEntitiesAndComponents();
+    void LogEntities() const ;
+    void LogEntitiesAndComponents() const;
     unsigned int GetEntityCount();
 };
 

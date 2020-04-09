@@ -37,13 +37,13 @@ unsigned int EntityManager::GetEntityCount() {
   return entities.size();
 }
 
-void EntityManager::LogEntities() {
+void EntityManager::LogEntities() const {
   for (auto &entity : entities) {
     std::cout << "Entity: " << entity->name << std::endl;
   }
 }
 
-void EntityManager::LogEntitiesAndComponents() {
+void EntityManager::LogEntitiesAndComponents() const {
   for (auto &entity : entities) {
     std::cout << "Entity: " << entity->name << std::endl;
     for (auto &component : entity->GetComponents()) {

@@ -2,11 +2,14 @@
 #include "../lib/glm/glm.hpp"
 #include "Constants.h"
 #include "Game.h"
+#include "AssetManager.h"
 #include "EntityManager.h"
 #include "Component.h"
-#include "./Components/TransformComponent.h";
+#include "Components/TransformComponent.h"
+#include "Components/SpriteComponent.h"
 
 EntityManager manager;
+AssetManager* Game::assetManager = new AssetManager(&manager);
 SDL_Renderer *Game::renderer;
 
 Game::Game() {
@@ -22,19 +25,23 @@ bool Game::IsRunning() const {
 }
 
 void Game::LoadLevel(int levelNumber) {
-  // Add more entities with components.
-  Entity& newEntity(manager.AddEntity("projectile"));
+  // Start including new assets to the AssetManager list.
+  std::string textureFilePath = "./assets/images/tank-big-right.png";
+  assetManager->AddTexture("tank-image", textureFilePath.c_str());
 
+  // Start including entities and components to them.
+  Entity& newEntity(manager.AddEntity("tank"));
   newEntity.AddComponent<TransformComponent>(0, 0, 20, 20, 32, 32, 1);
-  newEntity.AddComponent<TransformComponent>(
-    WINDOW_WIDTH - 16,
-    WINDOW_HEIGHT - 16,
-    -20,
-    -20,
-    16,
-    16,
-    1
-    );
+  newEntity.AddComponent<SpriteComponent>("tank-image");
+  // newEntity.AddComponent<TransformComponent>(
+  //   WINDOW_WIDTH - 16,
+  //   WINDOW_HEIGHT - 16,
+  //   -20,
+  //   -20,
+  //   16,
+  //   16,
+  //   1
+  //   );
 
     Entity& circleEnity = manager.AddEntity("circle_projectile");
     circleEnity.AddComponent<TransformComponent>(
