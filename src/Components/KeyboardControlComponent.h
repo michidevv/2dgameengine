@@ -93,24 +93,24 @@ class KeyboardControlComponent : public Component
         }
       }
 
-      ClampOffscreenPosition();
+      // ClampOffscreenPosition();
     }
 
-    void ClampOffscreenPosition() {
-      int clampWidth = WINDOW_WIDTH - transform->width * transform->scale;
-      int clampHeight = WINDOW_HEIGHT - transform->height * transform->scale;
-      if (transform->position.x >= clampWidth) {
-        transform->position.x = clampWidth;
-      } else if (transform->position.x <= 0) {
-        transform->position.x = 0;
-      }
+    // void ClampOffscreenPosition() {
+    //   int clampWidth = WINDOW_WIDTH - transform->width * transform->scale;
+    //   int clampHeight = WINDOW_HEIGHT - transform->height * transform->scale;
+    //   if (transform->position.x >= clampWidth) {
+    //     transform->position.x = clampWidth;
+    //   } else if (transform->position.x <= 0) {
+    //     transform->position.x = 0;
+    //   }
 
-      if (transform->position.y >= clampHeight) {
-        transform->position.y = clampHeight;
-      } else if (transform->position.y <= 0) {
-        transform->position.y = 0;
-      }
-    }
+    //   if (transform->position.y >= clampHeight) {
+    //     transform->position.y = clampHeight;
+    //   } else if (transform->position.y <= 0) {
+    //     transform->position.y = 0;
+    //   }
+    // }
 };
 
 #endif
