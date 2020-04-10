@@ -27,7 +27,7 @@ class TileComponent : public Component {
       destinationRectangle.h = tileSize * tileScale;
 
       position.x = x;
-      position.y = x;
+      position.y = y;
     }
 
     ~TileComponent() {
@@ -35,7 +35,8 @@ class TileComponent : public Component {
     }
 
     void Update(float deltaTime) override {
-      // Handle tile position on camera move
+      destinationRectangle.x = position.x - Game::camera.x;
+      destinationRectangle.y = position.y - Game::camera.y;
     }
 
     void Render() override {

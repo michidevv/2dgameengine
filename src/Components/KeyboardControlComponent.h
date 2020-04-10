@@ -8,7 +8,8 @@
 
 int const VELOCITY = 80;
 
-class KeyboardControlComponent : public Component {
+class KeyboardControlComponent : public Component
+{
   public:
     std::string upKey;
     std::string downKey;
